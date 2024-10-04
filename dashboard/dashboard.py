@@ -8,7 +8,8 @@ from streamlit_folium import folium_static
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv('output_buatdashboard.csv', parse_dates=['date'])
+    df = pd.read_csv('/absolute/path/to/output_buatdashboard.csv', parse_dates=['date'])
+
     return df
 
 # Load data
