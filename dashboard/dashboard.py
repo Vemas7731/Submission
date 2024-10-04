@@ -4,13 +4,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import folium
 from streamlit_folium import folium_static
+import os
 
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv('/absolute/path/to/output_buatdashboard.csv', parse_dates=['date'])
-
-    return df
+    if os.path.exists('output_buatdashboard.csv'):
+        df = pd.read_csv('output_buatdashboard.csv', parse_dates=['date'])
+    else:
+        print("File not found")
 
 # Load data
 df_allstation = load_data()
